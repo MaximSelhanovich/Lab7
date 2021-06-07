@@ -2,6 +2,7 @@ name: build-and-test
 
 on: 
   push:
+    paths: "./lab6"
 
 jobs:
 
