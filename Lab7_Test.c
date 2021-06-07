@@ -89,11 +89,18 @@ void testListOfTasks() {
     task4 = getTask();
     addTask(list, task4);
 
+    assert(!strccmp(list->head->taskName, "Domachnee zadanie"));
+    removeTaskFront(list);
+    assert(!strcmp(list->head->taskName, "Ocheredi"));
+
+    assert(!strcmp(list->tail->taskName,"Architector"));
+    removeTaskEnd(list);
+    assert(!strcmp(list->tail->taskName,"Zhmuh"));
+
     printListOfTasks(list);
 
     deleteListOfTasks(list);
 }
-
 
 #undef main
 
