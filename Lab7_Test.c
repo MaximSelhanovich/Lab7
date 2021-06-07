@@ -31,7 +31,8 @@ void testdifDate() {
     Date *test2 = getDate();
     /*2026\n6\n30\n*/
 
-    assert(difDate(test1, test2) == 1495);
+    printf("\n%d\n", difDate(test1, test2));
+    assert(difDate(test1, test2) == 1494);
     assert(difDate(NULL, test2) == INT_MIN);
     assert(difDate(test1, NULL) == INT_MIN);
 

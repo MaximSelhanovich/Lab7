@@ -20,7 +20,7 @@ typedef enum Month {
     December
 }Month;
 
-typedef struct Date{
+typedef struct Date {
     int day;
     int month;
     int year;
