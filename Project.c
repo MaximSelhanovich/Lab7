@@ -7,3 +7,9 @@ typedef struct Project {
     int peopleOnProject;
     double ResourcesOnProject;
 }Project;
+
+void deleteProject(Project *project) {
+    deleteListOfTasks(project->criticalTasks);
+    deleteListOfTasks(project->parallelTasks);
+    free(project);
+}
