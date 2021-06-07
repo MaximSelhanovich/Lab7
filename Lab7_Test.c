@@ -2,6 +2,7 @@
 #include "Task.h"
 #include "ListOfTasks.h"
 #include "assert.h"
+#include "string.h"
 
 void testgetDate() {
     /*321\n2024\n-4\n2\nasdf\n29\n*/    
@@ -89,7 +90,7 @@ void testListOfTasks() {
     task4 = getTask();
     addTask(list, task4);
 
-    assert(!strccmp(list->head->taskName, "Domachnee zadanie"));
+    assert(!strcmp(list->head->taskName, "Domachnee zadanie"));
     removeTaskFront(list);
     assert(!strcmp(list->head->taskName, "Ocheredi"));
 
