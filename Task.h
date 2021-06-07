@@ -6,7 +6,7 @@
 #include <string.h>
 #include "Date.h"
 
-typedef struct Task{
+typedef struct Task {
     Date *startTaskTime;
     Date *endTaskTime;
 
