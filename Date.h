@@ -30,6 +30,7 @@ int getValidInt(int minValue, int maxValue);
 int getMaxDay(Month month);
 int rewriteDate(Date *toRewrite);
 Date* getDate();
+int countLeapYears(Date *date);
 int difDate(Date* start, Date* end);
 int compareDate(Date *first, Date *second);
 int printDate(Date *date);

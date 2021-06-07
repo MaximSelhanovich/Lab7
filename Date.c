@@ -15,6 +15,28 @@ int getValidInt(int minValue, int maxValue) {
     return temp;
 }
 
+int countLeapYears(Date *date) {
+    int years = date->year;
+
+    if (date->month <= 2) years--;
+ 
+    return years / 4 - years / 100 + years / 400;
+}
+
+int difDate(Date *date1, Date *date2) {
+    int i = 0;
+    long int days1 = date1->year * 365 + date1->day;
+    long int days2 = date2->year * 365 + date2->day;
+
+    for (i = 1; i < date1->month; ++i) days1 += getMaxDay(i);
+    days1 += countLeapYears(date1);
+
+    for (i = 1; i < date2->month; ++i) days2 += getMaxDay(i);
+    days2 += countLeapYears(date2);
+
+    return (days2 - days1);
+}
+
 int getMaxDay(Month month) {
     if (month < 0 || month > 12) return INT_MIN;
 
@@ -59,35 +81,6 @@ Date* getDate() {
     rewriteDate(received);
 
     return received;
-}
-
-/*It returns days*/
-int difDate(Date* start, Date* end) {
-    int diff = 0;
-    int i = 0;
-
-    if (!start || !end) {
-        printf("\nError, \"Date\" is missing\n");
-        return INT_MIN;
-    }
-
-    if (!(start->year % 4) && start->month <= February)
-        ++diff;
-
-    for (i = start->year + 1; i < end->year; ++i) {
-        if (i % 4 == 0) ++diff;
-    }
-
-    if (!(end->year % 4) &&
-        (end->month > February ||
-        (end->month == February && end->day == 29)))
-        ++diff;
-     
-    diff += (start->year - end->year) * 365 +
-            getMaxDay(start->month) - getMaxDay(end->month) +
-            start->day - end->day;
-    
-    return diff;
 }
 
 int compareDate(Date *first, Date *second) {
