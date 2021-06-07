@@ -16,6 +16,7 @@ typedef struct ListOfTasks {
 ListOfTasks* newListOfTasks();
 void addTaskEnd(ListOfTasks *list, Task *newTask);
 void addTaskFront(ListOfTasks *list, Task *newTask);
+void addTask(ListOfTasks *list, Task *newTask);
 void removeTaskEnd(ListOfTasks *list);
 void removeTaskFront(ListOfTasks *list);
 Task *deleteTaskInList(ListOfTasks *list, const char *nameToSearch);

@@ -39,7 +39,7 @@ int rewriteDate(Date *toRewrite) {
     toRewrite->month = getValidInt(1, 12);
 
     temp = getMaxDay(toRewrite->month);
-    if (toRewrite->month == February && toRewrite->year % 4) ++temp;
+    if (toRewrite->month == February && !(toRewrite->year % 4)) ++temp;
     
     printf("\nEnter day(1 - %d): ", temp);
     toRewrite->day = getValidInt(1, temp);
