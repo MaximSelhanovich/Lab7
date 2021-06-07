@@ -25,8 +25,13 @@ int countLeapYears(Date *date) {
 
 int difDate(Date *date1, Date *date2) {
     int i = 0;
-    long int days1 = date1->year * 365 + date1->day;
-    long int days2 = date2->year * 365 + date2->day;
+    long int days1 = 0;
+    long int days2 = 0;
+
+    if (!date1 || !date2) return INT_MIN;
+
+    days1 = date1->year * 365 + date1->day;
+    days2 = date2->year * 365 + date2->day;
 
     for (i = 1; i < date1->month; ++i) days1 += getMaxDay(i);
     days1 += countLeapYears(date1);

@@ -36,10 +36,11 @@ void testdifDate() {
     assert(difDate(NULL, test2) == INT_MIN);
     assert(difDate(test1, NULL) == INT_MIN);
 
-    rewriteDate(test1);
-
     assert(compareDate(test1, test2) == -1);
     assert(compareDate(test2, test1) == 1);
+
+    rewriteDate(test1);
+
     assert(!compareDate(test2, test1));
 
     deleteDate(test1);
