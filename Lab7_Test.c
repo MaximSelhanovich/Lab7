@@ -58,10 +58,10 @@ void testgetTask() {
     assert(task->startTaskTime->month == 2);
     assert(task->startTaskTime->day == 2);
 
-    printf("\ncreate\n%d\n", task->endTaskTime->year);
+    printTask(task);
     assert(task->endTaskTime->year == 2345);
-    assert(task->endTaskTime->year == 2);
-    assert(task->endTaskTime->year == 2);
+    assert(task->endTaskTime->month == 2);
+    assert(task->endTaskTime->day == 2);
 
     assert(!printTask(NULL));
     assert(printTask(task));
