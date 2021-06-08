@@ -76,6 +76,7 @@ void testListOfTasks() {
     Task *task2 = NULL;
     Task *task3 = NULL;
     Task *task4 = NULL;
+    Task *task5 = NULL;
 
     /*Architector\n2211\n12\n30\n2222\n5\n18\n*/
     task1 = getTask();
@@ -93,6 +94,10 @@ void testListOfTasks() {
     task4 = getTask();
     addTask(list, task4);
 
+    /*Kursach\n2021\n6\n7\n2021\n6\n8\n*/
+    task5 = getTask();
+    addTask(list, task5);
+
     assert(printListOfTasks(list));
 
     assert(searchTask(list, "Zhmuh"));
@@ -100,15 +105,30 @@ void testListOfTasks() {
     assert(!searchTask(list, NULL));
     assert(!searchTask(NULL, NULL));
 
-    assert(!strcmp(list->head->taskName, "Domachnee zadanie"));
+    assert(!strcmp(list->head->taskName, "Kursach"));
     removeTaskFront(list);
-    assert(!strcmp(list->head->taskName, "Ocheredi"));
+    assert(!strcmp(list->head->taskName, "Domachnee zadanie"));
 
     assert(!strcmp(list->tail->taskName, "Architector"));
     removeTaskEnd(list);
-
     assert(!strcmp(list->tail->taskName, "Zhmuh"));
+    
     assert(searchTask(list, "Ocheredi"));
+
+    task1 = deleteTaskInList(list, "Ocheredi");
+    assert(!strcmp(task1->taskName, "Ocheredi"));
+    deleteTask(task1);
+
+    task2 = deleteTaskInList(list, "Doesn't exist");
+    assert(!task2);
+
+    task3 = deleteTaskInList(list, "Zhmuh");
+    assert(!strcmp(task3->taskName, "Zhmuh"));
+    deleteTask(task2);
+
+    task4 = deleteTaskInList(list, "Domachnee zadanie");
+    assert(!strcmp(task4->taskName, "Domachnee zadanie"));
+    deleteTask(task3);
 
     assert(printListOfTasks(list));
     assert(!printListOfTasks(NULL));
