@@ -133,6 +133,7 @@ Task *deleteTaskInList(ListOfTasks *list, const char *nameToSearch) {
     while (temp) {
         if (!strcmp(temp->taskName, nameToSearch)) {
             printTask(temp);
+            --list->length;
 
             if (temp == list->head) {
                 list->head = list->head->nextTask;
@@ -156,7 +157,7 @@ Task *deleteTaskInList(ListOfTasks *list, const char *nameToSearch) {
 void deleteListOfTasks(ListOfTasks *list) {
     Task *temp = NULL;
 
-    if (!list) return;
+    if (!list || !list->length) return;
 
     temp = list->head;
 
