@@ -1,5 +1,23 @@
 #include "Project.h"
 
+Project *newProject() {
+    Project *project = (Project*)malloc(sizeof(Project));
+
+    if (!project) {
+        printf("\nError in allocation memory in Project!!!\n");
+        exit(-1);
+    }
+
+    project->projectName = getWord();
+
+    project->peopleOnProject = getValidInt(0, INT_MAX);
+    project->resourcesOnProject = getValidDouble(0, INT_MAX);
+
+    addTaskInProject(project);
+
+    return project;
+}
+
 void addTaskInProject(Project *project) {
     char temp = 0;
     Task *task = NULL;
@@ -20,24 +38,6 @@ void addTaskInProject(Project *project) {
 
         temp = getValidInt(1, 3);
     }
-}
-
-Project *newProject() {
-    Project *project = (Project*)malloc(sizeof(Project));
-
-    if (!project) {
-        printf("\nError in allocation memory in Project!!!\n");
-        exit(-1);
-    }
-
-    project->projectName = getWord();
-
-    project->peopleOnProject = getValidInt(0, INT_MAX);
-    project->resourcesOnProject = getValidDouble(0, INT_MAX);
-
-    addTaskInProject(project);
-
-    return project;
 }
 
 int printProject(Project *project) {

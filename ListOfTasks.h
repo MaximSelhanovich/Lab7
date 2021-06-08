@@ -19,6 +19,7 @@ void addTaskFront(ListOfTasks *list, Task *newTask);
 void addTask(ListOfTasks *list, Task *newTask);
 void removeTaskEnd(ListOfTasks *list);
 void removeTaskFront(ListOfTasks *list);
+int searchTask(ListOfTasks *list, const char *nameToSearch);
 Task *deleteTaskInList(ListOfTasks *list, const char *nameToSearch);
 void deleteListOfTasks(ListOfTasks *list);
 int printListOfTasks(ListOfTasks *list);
