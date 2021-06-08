@@ -12,5 +12,6 @@ typedef struct ListOfProjects {
 void printProjectNames(ListOfProjects *list);
 Project *deleteProjectInList(ListOfProjects *list, const char *nameToSearch);
 void deleteListOfProjects(ListOfProjects *list);
+void saveToFileListOfProjects(FILE *toWrite, ListOfProjects *list);
 
 #endif

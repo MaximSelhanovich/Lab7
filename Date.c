@@ -140,6 +140,22 @@ void saveToFileDate(FILE *toWrite, Date *date) {
     fprintf(toWrite, "%d ", date->year);
 }
 
+Date* loadFromFileDate(FILE *toRead) {
+    Date *date = NULL;
+    if (!toRead) return;
+
+    date = (Date*)malloc(sizeof(Date));
+
+    if (!date) {
+        printf("\nError in allocation memory in \"Date\"\n");
+        exit(1);
+    }
+
+    fscanf(toRead, "%d", date->day);
+    fscanf(toRead, "%d", date->month);
+    fscanf(toRead, "%d", date->year);
+}
+
 /*typedef enum DayInMonth {
     January = 31,
     February = 28,

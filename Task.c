@@ -22,6 +22,19 @@ char* getWord() {
     return tempLine;
 }
 
+char* getWordFromFile(FILE *toRead) {
+    char *tempLine = NULL;
+    if (!toRead) return NULL;
+    
+    tempLine = (char*)malloc(256 * sizeof(char));
+    if (!tempLine) return NULL;
+
+    fscanf(toRead, "%[^\n]255s", tempLine);
+    fscanf(toRead, "%*c");
+    tempLine = resizeLine(tempLine);
+    return tempLine;
+}
+
 Task *getTask() {
     Task *task = (Task*)malloc(sizeof(Task));
     if (!task) {
@@ -77,8 +90,35 @@ void saveToFileTask(FILE *toWrite, Task *task) {
 
     fprintf(toWrite, "%s\n", "Task name");
     fprintf(toWrite, "%s\n", task->taskName);
+
     fprintf(toWrite, "%s\n", "Starting date");
     saveToFileDate(toWrite, task->startTaskTime);
+    
     fprintf(toWrite, "%s\n", "Ending date");
     saveToFileDate(toWrite, task->endTaskTime);
+}
+
+Task* loadFromFileTask(FILE *toRead) {
+    Task *task = NULL;
+    char *taskName = NULL;
+
+    if (!toRead) return;
+
+    task = (Task *)malloc(sizeof(Task));
+
+    if (!task) {
+        printf("\nError in memory allocation in \"Task\"\n");
+        exit(1);
+    }
+
+    fseek(toRead, 10, SEEK_CUR);
+    task->taskName = getWordFromFile(toRead);
+
+    fseek(toRead, 14, SEEK_CUR);
+    loadFromFileDate(toRead, task->startTaskTime);
+
+    fseek(toRead, 12, SEEK_CUR);
+    loadFromFileDate(toRead,  task->endTaskTime);
+
+    return task;
 }

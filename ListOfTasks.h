@@ -23,5 +23,6 @@ int searchTask(ListOfTasks *list, const char *nameToSearch);
 Task *deleteTaskInList(ListOfTasks *list, const char *nameToSearch);
 void deleteListOfTasks(ListOfTasks *list);
 int printListOfTasks(ListOfTasks *list);
+void saveToFileListOfTasks(FILE *toWrite, ListOfTasks *list);
 
 #endif
