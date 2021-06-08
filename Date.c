@@ -15,6 +15,20 @@ int getValidInt(int minValue, int maxValue) {
     return temp;
 }
 
+double getValidDouble(int minValue, int maxValue) {
+    double temp;
+    char goodCheck;
+
+    while(!scanf("%lf", &temp) || temp < minValue || temp > maxValue ||
+          (scanf("%c", &goodCheck) && goodCheck != '\n')) {
+        printf("Wrong input!\nDate must be >= %d && <= %d.\n"
+               "Please, try again: ",minValue, maxValue);
+        fflush(stdin);
+    }
+
+    return temp;
+}
+
 int countLeapYears(Date *date) {
     int years = date->year;
 

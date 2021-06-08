@@ -27,6 +27,7 @@ typedef struct Date {
 }Date;
 
 int getValidInt(int minValue, int maxValue);
+double getValidDouble(int minValue, int maxValue);
 int getMaxDay(Month month);
 int rewriteDate(Date *toRewrite);
 Date* getDate();
