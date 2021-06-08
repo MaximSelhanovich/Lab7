@@ -87,7 +87,7 @@ void removeTaskEnd(ListOfTasks *list) {
         list->tail->nextTask = oldTail->nextTask;
 
     --list->length;
-    free(oldTail);
+    deleteTask(oldTail);
 }
 
 void removeTaskFront(ListOfTasks *list) {
@@ -103,7 +103,7 @@ void removeTaskFront(ListOfTasks *list) {
         list->head->prevTask = oldHead->prevTask;
 
     --list->length;
-    free(oldHead);
+    deleteTask(oldHead);
 }
 
 int searchTask(ListOfTasks *list, const char *nameToSearch) {

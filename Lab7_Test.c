@@ -75,7 +75,7 @@ void testListOfTasks() {
     Task *task2 = NULL;
     Task *task3 = NULL;
     Task *task4 = NULL;
-    
+
     /*Architector\n2211\n12\n30\n2222\n5\n18\n*/
     task1 = getTask();
     addTaskEnd(list, task1);
@@ -100,6 +100,7 @@ void testListOfTasks() {
 
     assert(!strcmp(list->tail->taskName,"Architector"));
     removeTaskEnd(list);
+    
     assert(!strcmp(list->tail->taskName,"Zhmuh"));
 
     printListOfTasks(list);
