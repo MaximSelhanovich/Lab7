@@ -128,8 +128,8 @@ int printDate(Date *date) {
 }
 
 void deleteDate(Date *date) { 
-    if (!date) return;    
-    free(date); 
+    if (!date) return;   
+    free(date);
 }
 
 /*typedef enum DayInMonth {

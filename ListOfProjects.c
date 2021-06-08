@@ -32,10 +32,10 @@ Project *deleteProjectInList(ListOfProjects *list, const char *nameToSearch) {
             
             if (temp == list->head) {
                 list->head = list->head->nextProject;
-                list->head->prevProject = temp->prevProject;
+                if (list->head) list->head->prevProject = temp->prevProject;
             } else if (temp == list->tail) {
                 list->tail = list->tail->prevProject;
-                list->tail->nextProject = temp->nextProject;
+                if (list->tail) list->tail->nextProject = temp->nextProject;
             } else {
                 temp->prevProject->nextProject = temp->nextProject;
                 temp->nextProject->prevProject = temp->prevProject; 
