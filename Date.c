@@ -127,8 +127,8 @@ int printDate(Date *date) {
     return 1;
 }
 
-void deleteDate(Date *date) { 
-    if (!date) return;   
+void deleteDate(Date *date) {
+    if (!date) return;
     free(date);
 }
 
