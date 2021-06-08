@@ -75,7 +75,7 @@ void deleteProject(Project *project) {
 }
 
 void saveToFileProject(FILE *toWrite, Project *project) {
-    if (!toWrite || !project) return; 
+    if (!toWrite || !project) return;
 
     fprintf(toWrite, "%s\n", "Project name");
     fprintf(toWrite, "%s\n", project->projectName);
