@@ -36,6 +36,7 @@ void testdifDate() {
     assert(difDate(test1, test2) == 1494);
     assert(difDate(NULL, test2) == INT_MIN);
     assert(difDate(test1, NULL) == INT_MIN);
+    assert(difDate(NULL, NULL) == INT_MIN);
 
     assert(compareDate(test1, test2) == -1);
     assert(compareDate(test2, test1) == 1);
@@ -92,7 +93,12 @@ void testListOfTasks() {
     task4 = getTask();
     addTask(list, task4);
 
-    printListOfTasks(list);
+    assert(printListOfTasks(list));
+
+    assert(searchTask(list, "Zhmuh"));
+    assert(!searchTask(NULL, "Zhmuh"));
+    assert(!searchTask(list, NULL));
+    assert(!searchTask(NULL, NULL));
 
     assert(!strcmp(list->head->taskName, "Domachnee zadanie"));
     removeTaskFront(list);
@@ -102,8 +108,10 @@ void testListOfTasks() {
     removeTaskEnd(list);
 
     assert(!strcmp(list->tail->taskName, "Zhmuh"));
+    assert(searchTask(list, "Ocheredi"));
 
-    printListOfTasks(list);
+    assert(printListOfTasks(list));
+    assert(!printListOfTasks(NULL));
 
     deleteListOfTasks(list);
 }
