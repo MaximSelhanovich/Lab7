@@ -111,6 +111,7 @@ int main() {
     testgetMaxDay();
     testdifDate();
     testgetTask();
+    testListOfTasks();
 
     return 0;
 }
