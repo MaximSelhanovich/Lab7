@@ -46,7 +46,7 @@ int printProject(Project *project) {
 
     printf("\nProject name: \"%s\"", project->projectName);
     printf("\nPeople on project: %d", project->peopleOnProject);
-    printf("\nResoursec: %lf", project->resourcesOnProject);
+    printf("\nResoursec: %f", project->resourcesOnProject);
 
     printf("\nCritical path\n");
     printListOfTasks(project->criticalTasks);

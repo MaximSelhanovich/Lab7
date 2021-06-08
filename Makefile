@@ -3,7 +3,7 @@ CFLAGS = -std=c89 -pedantic -Wall
 LIBS = 
 OBJ = Lab7.c Project.c ListOfTasks.c Task.c Date.c
 OBJ_TEST = Lab7_Test.c $(OBJ)
-CPPLINTFLAGS = --filter=-readability/casting, -legal/copyright, -runtime/int
+CPPLINTFLAGS = --filter=-readability/casting,-legal/copyright,-runtime/int
 
 Lab7: $(OBJ)
 	$(CC) $(CFLAGS) $(OBJ) -o Lab7
