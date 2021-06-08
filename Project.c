@@ -1,12 +1,4 @@
-#include "ListOfTasks.h"
-
-typedef struct Project {
-    ListOfTasks *criticalTasks;
-    ListOfTasks *parallelTasks;
-    char *projectName;
-    int peopleOnProject;
-    double resourcesOnProject;
-}Project;
+#include "Project.h"
 
 void addTaskInProject(Project *project) {
     char temp = 0;
