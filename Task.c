@@ -38,7 +38,7 @@ Task *getTask() {
     printf("\nEnter ending time: ");
     task->endTaskTime = getDate();
     
-    while (difDate(task->endTaskTime, task->startTaskTime) <= 0) {
+    while (compareDate(task->endTaskTime, task->startTaskTime) == -1) {
         printf("\nWrong input. End date must be later then start date.\n"
                "Enter ending time again");
         rewriteDate(task->endTaskTime);
