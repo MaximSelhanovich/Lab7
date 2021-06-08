@@ -36,4 +36,5 @@ int difDate(Date* start, Date* end);
 int compareDate(Date *first, Date *second);
 int printDate(Date *date);
 void deleteDate(Date *date);
+
 #endif
