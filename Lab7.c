@@ -1,8 +1,4 @@
 #include "Lab7.h"
-#include <stdlib.h>
-#include <stdio.h>
-#include "Date.h"
-#include "Task.h"
 
 int main() {
     Task *new = getTask();

@@ -1,11 +1,4 @@
-#include "Project.h"
-
-typedef struct ListOfProjects {
-    Project *head;
-    Project *tail;
-
-    unsigned int length;
-}ListOfProjects;
+#include "ListOfProjects.h"
 
 void printProjectNames(ListOfProjects *list) {
     Project *temp = NULL;
