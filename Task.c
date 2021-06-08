@@ -25,7 +25,7 @@ char* getWord() {
 char* getWordFromFile(FILE *toRead) {
     char *tempLine = NULL;
     if (!toRead) return NULL;
-    
+
     tempLine = (char*)malloc(256 * sizeof(char));
     if (!tempLine) return NULL;
 
@@ -93,7 +93,7 @@ void saveToFileTask(FILE *toWrite, Task *task) {
 
     fprintf(toWrite, "%s\n", "Starting date");
     saveToFileDate(toWrite, task->startTaskTime);
-    
+
     fprintf(toWrite, "%s\n", "Ending date");
     saveToFileDate(toWrite, task->endTaskTime);
 }

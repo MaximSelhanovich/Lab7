@@ -133,7 +133,7 @@ void deleteDate(Date *date) {
 }
 
 void saveToFileDate(FILE *toWrite, Date *date) {
-    if (!toWrite || !date) return; 
+    if (!toWrite || !date) return;
 
     fprintf(toWrite, "%d ", date->day);
     fprintf(toWrite, "%d ", date->month);
