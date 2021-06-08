@@ -91,6 +91,8 @@ void testListOfTasks() {
     task4 = getTask();
     addTask(list, task4);
 
+    printListOfTasks(list);
+
     assert(!strcmp(list->head->taskName, "Domachnee zadanie"));
     removeTaskFront(list);
     assert(!strcmp(list->head->taskName, "Ocheredi"));
