@@ -10,6 +10,7 @@ typedef struct Project {
     double resourcesOnProject;
 
     struct Project *nextProject;
+    struct Project *prevProject;
 }Project;
 
 void addTaskInProject(Project *project);
