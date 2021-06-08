@@ -4,12 +4,13 @@
 int getValidInt(int minValue, int maxValue) {
     int temp;
     char goodCheck;
+    char c;
 
-    while(!scanf("%d", &temp) || temp < minValue || temp > maxValue ||
+    while (!scanf("%d", &temp) || temp < minValue || temp > maxValue ||
           (scanf("%c", &goodCheck) && goodCheck != '\n')) {
         printf("Wrong input!\nDate must be >= %d && <= %d.\n"
                "Please, try again: ",minValue, maxValue);
-        fflush(stdin);
+        while ((c = getchar()) != '\n' && c != EOF);
     }
 
     return temp;
