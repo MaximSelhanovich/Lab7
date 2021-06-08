@@ -34,7 +34,7 @@ int countLeapYears(Date *date) {
     int years = date->year;
 
     if (date->month <= 2) years--;
- 
+
     return years / 4 - years / 100 + years / 400;
 }
 
