@@ -137,10 +137,10 @@ Task *deleteTaskInList(ListOfTasks *list, const char *nameToSearch) {
 
             if (temp == list->head) {
                 list->head = list->head->nextTask;
-                list->head->prevTask = temp->prevTask;
+                if (list->head) list->head->prevTask = temp->prevTask;
             } else if (temp == list->tail) {
                 list->tail = list->tail->prevTask;
-                list->tail->nextTask = temp->nextTask;
+                if (list->tail) list->tail->nextTask = temp->nextTask;
             } else {
                 temp->prevTask->nextTask = temp->nextTask;
                 temp->nextTask->prevTask = temp->prevTask;
