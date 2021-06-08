@@ -35,7 +35,7 @@ void addTask(ListOfTasks *list, Task *newTask) {
             } else {
                 newTask->nextTask = temp->nextTask;
                 newTask->prevTask = temp;
-                
+
                 temp->nextTask->prevTask = newTask;
                 temp->nextTask = newTask;
             }
@@ -179,7 +179,7 @@ int printListOfTasks(ListOfTasks *list) {
     
     printf("\nCurrent tasks");
     while (temp) {
-        printTask(list->head);
+        printTask(temp);
         temp = temp->nextTask;
     } 
 
