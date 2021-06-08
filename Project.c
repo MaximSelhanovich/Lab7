@@ -7,11 +7,13 @@ Project *newProject() {
         printf("\nError in allocation memory in Project!!!\n");
         exit(-1);
     }
+
     printf("Enter project name\n");
     project->projectName = getWord();
 
     printf("Enter people on project\n");
     project->peopleOnProject = getValidInt(0, INT_MAX);
+
     printf("Enter resources on project\n");
     project->resourcesOnProject = getValidDouble(0, INT_MAX);
 
@@ -90,7 +92,7 @@ void saveToFileProject(FILE *toWrite, Project *project) {
 Project* loadFromFileProject(FILE *toRead) {
     Project *project = NULL;
 
-    if (!toRead) return;
+    if (!toRead) return NULL;
 
     project = (Project*)malloc(sizeof(Project));
 
@@ -102,8 +104,8 @@ Project* loadFromFileProject(FILE *toRead) {
     fseek(toRead, 13, SEEK_CUR);
     project->projectName = getWordFromFile(toRead);
 
-    fscanf(toRead, "%d", project->peopleOnProject);
-    fscanf(toRead, "%f", project->resourcesOnProject);
+    fscanf(toRead, "%d", &project->peopleOnProject);
+    fscanf(toRead, "%lf", &project->resourcesOnProject);
     fscanf(toRead, "%*c");
 
     project->criticalTasks = loadFromFileListOfTasks(toRead);

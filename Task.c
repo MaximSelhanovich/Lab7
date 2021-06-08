@@ -100,7 +100,6 @@ void saveToFileTask(FILE *toWrite, Task *task) {
 
 Task* loadFromFileTask(FILE *toRead) {
     Task *task = NULL;
-    char *taskName = NULL;
 
     if (!toRead) return NULL;
 

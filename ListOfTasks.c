@@ -191,7 +191,7 @@ void saveToFileListOfTasks(FILE *toWrite, ListOfTasks *list) {
     if (!toWrite || !list) return;
 
     temp = list->head;
-    fpirntf(toWrite, "%d\n", list->length);
+    fprintf(toWrite, "%d\n", list->length);
 
     while (temp) {
         saveToFileTask(toWrite, temp);
@@ -203,12 +203,12 @@ ListOfTasks* loadFromFileListOfTasks(FILE *toRead) {
     ListOfTasks *list = NULL;
     Task *task = NULL;
     int i = 0;
-    unsigned int length;
+    unsigned int length = 0;
 
-    if (!toRead) return;
+    if (!toRead) return NULL;
 
     list = newListOfTasks();
-    fscanf(toRead, "%d", &length);
+    fscanf(toRead, "%u", &length);
 
     for (i = 0; i < length; ++i) {
         task = loadFromFileTask(toRead);

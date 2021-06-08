@@ -151,9 +151,9 @@ Date* loadFromFileDate(FILE *toRead) {
         exit(1);
     }
 
-    fscanf(toRead, "%d", date->day);
-    fscanf(toRead, "%d", date->month);
-    fscanf(toRead, "%d", date->year);
+    fscanf(toRead, "%d", &date->day);
+    fscanf(toRead, "%d", &date->month);
+    fscanf(toRead, "%d", &date->year);
     fscanf(toRead, "%*c");
 
     return date;

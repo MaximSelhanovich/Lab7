@@ -19,6 +19,7 @@ typedef struct Task {
 
 char* resizeLine(char *line);
 char* getWord();
+char* getWordFromFile(FILE *toRead);
 
 Task *getTask();
 void deleteTask(Task *task);
