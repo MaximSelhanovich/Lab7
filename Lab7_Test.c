@@ -124,11 +124,11 @@ void testListOfTasks() {
 
     task3 = deleteTaskInList(list, "Zhmuh");
     assert(!strcmp(task3->taskName, "Zhmuh"));
-    deleteTask(task2);
+    deleteTask(task3);
 
     task4 = deleteTaskInList(list, "Domachnee zadanie");
     assert(!strcmp(task4->taskName, "Domachnee zadanie"));
-    deleteTask(task3);
+    deleteTask(task4);
 
     assert(printListOfTasks(list));
     assert(!printListOfTasks(NULL));
