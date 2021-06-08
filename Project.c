@@ -10,7 +10,7 @@ void addTaskInProject(Project *project) {
            "2) Parallel task\n"
            "3) Exit\n");
 
-    
+
     temp = getValidInt(1, 3);
     while (temp != 3) {
         task = getTask();
@@ -41,13 +41,13 @@ Project *newProject() {
 }
 
 int printProject(Project *project) {
-    if (!project || ! !project->criticalTasks ||
+    if (!project || !project->criticalTasks ||
         !project->parallelTasks) return 0;
 
     printf("\nProject name: \"%s\"", project->projectName);
     printf("\nPeople on project: %d", project->peopleOnProject);
     printf("\nResoursec: %lf", project->resourcesOnProject);
-    
+
     printf("\nCritical path\n");
     printListOfTasks(project->criticalTasks);
 

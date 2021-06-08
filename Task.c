@@ -28,7 +28,7 @@ Task *getTask() {
         printf("\nError in memory allocation in \"Task\"\n");
         exit(1);
     }
-    
+
     printf("\nEnter task name: ");
     task->taskName = getWord();
 
@@ -37,7 +37,7 @@ Task *getTask() {
 
     printf("\nEnter ending time: ");
     task->endTaskTime = getDate();
-    
+
     while (compareDate(task->endTaskTime, task->startTaskTime) != 1) {
         printf("\nWrong input. End date must be later then start date.\n"
                "Enter ending time again");

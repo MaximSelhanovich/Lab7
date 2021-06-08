@@ -9,8 +9,8 @@ int getValidInt(int minValue, int maxValue) {
     while (!scanf("%d", &temp) || temp < minValue || temp > maxValue ||
           (scanf("%c", &goodCheck) && goodCheck != '\n')) {
         printf("Wrong input!\nDate must be >= %d && <= %d.\n"
-               "Please, try again: ",minValue, maxValue);
-        while ((c = getchar()) != '\n' && c != EOF);
+               "Please, try again: ", minValue, maxValue);
+        while ((c = getchar()) != '\n' && c != EOF) {};
     }
 
     return temp;
@@ -20,10 +20,10 @@ double getValidDouble(int minValue, int maxValue) {
     double temp;
     char goodCheck;
 
-    while(!scanf("%lf", &temp) || temp < minValue || temp > maxValue ||
+    while (!scanf("%lf", &temp) || temp < minValue || temp > maxValue ||
           (scanf("%c", &goodCheck) && goodCheck != '\n')) {
         printf("Wrong input!\nDate must be >= %d && <= %d.\n"
-               "Please, try again: ",minValue, maxValue);
+               "Please, try again: ", minValue, maxValue);
         fflush(stdin);
     }
 
@@ -71,7 +71,7 @@ int getMaxDay(Month month) {
 
 int rewriteDate(Date *toRewrite) {
     char temp = 0;
-    
+
     if (!toRewrite) return 0;
 
     printf("\nEnter year(2021 - 3000): ");
@@ -82,7 +82,7 @@ int rewriteDate(Date *toRewrite) {
 
     temp = getMaxDay(toRewrite->month);
     if (toRewrite->month == February && !(toRewrite->year % 4)) ++temp;
-    
+
     printf("\nEnter day(1 - %d): ", temp);
     toRewrite->day = getValidInt(1, temp);
 

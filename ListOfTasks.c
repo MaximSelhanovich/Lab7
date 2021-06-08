@@ -42,7 +42,7 @@ void addTask(ListOfTasks *list, Task *newTask) {
         }
 
         temp = temp->nextTask;
-    }      
+    }
 }
 
 void addTaskEnd(ListOfTasks *list, Task *newTask) {
@@ -76,11 +76,11 @@ void addTaskFront(ListOfTasks *list, Task *newTask) {
 
 void removeTaskEnd(ListOfTasks *list) {
     Task *oldTail = NULL;
-    
+
     if (!list || !list->tail) return;
 
     oldTail = list->tail;
-    list->tail = list->tail->prevTask; 
+    list->tail = list->tail->prevTask;
 
     if (!list->tail) list->head = NULL;
     else
@@ -133,7 +133,7 @@ Task *deleteTaskInList(ListOfTasks *list, const char *nameToSearch) {
     while (temp) {
         if (!strcmp(temp->taskName, nameToSearch)) {
             printTask(temp);
-            
+
             if (temp == list->head) {
                 list->head = list->head->nextTask;
                 list->head->prevTask = temp->prevTask;
@@ -142,9 +142,9 @@ Task *deleteTaskInList(ListOfTasks *list, const char *nameToSearch) {
                 list->tail->nextTask = temp->nextTask;
             } else {
                 temp->prevTask->nextTask = temp->nextTask;
-                temp->nextTask->prevTask = temp->prevTask; 
+                temp->nextTask->prevTask = temp->prevTask;
             }
-            
+
             temp->nextTask = temp->prevTask = NULL;
             return temp;
         }
@@ -175,12 +175,12 @@ int printListOfTasks(ListOfTasks *list) {
     if (!list) return 0;
 
     temp = list->head;
-    
+
     printf("\nCurrent tasks");
     while (temp) {
         printTask(temp);
         temp = temp->nextTask;
-    } 
+    }
 
     return 1;
 }

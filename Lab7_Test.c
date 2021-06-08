@@ -5,7 +5,7 @@
 #include <string.h>
 
 void testgetDate() {
-    /*321\n2024\n-4\n2\nasdf\n29\n*/    
+    /*321\n2024\n-4\n2\nasdf\n29\n*/
     Date *test = getDate();
     assert(test);
     assert(test->year == 2024);
@@ -14,7 +14,7 @@ void testgetDate() {
 
     assert(printDate(test));
     assert(!printDate(NULL));
-    
+
     deleteDate(test);
 }
 
@@ -51,7 +51,7 @@ void testdifDate() {
 void testgetTask() {
     /*Get rekted\n2222\n2\n2\n2222\n\1\n1\n2345\n2\n2\n*/
     Task *task = getTask();
-    
+
     assert(!strcmp(task->taskName, "Get rekted"));
 
     assert(task->startTaskTime->year == 2222);
@@ -98,10 +98,10 @@ void testListOfTasks() {
     removeTaskFront(list);
     assert(!strcmp(list->head->taskName, "Ocheredi"));
 
-    assert(!strcmp(list->tail->taskName,"Architector"));
+    assert(!strcmp(list->tail->taskName, "Architector"));
     removeTaskEnd(list);
-    
-    assert(!strcmp(list->tail->taskName,"Zhmuh"));
+
+    assert(!strcmp(list->tail->taskName, "Zhmuh"));
 
     printListOfTasks(list);
 
