@@ -127,7 +127,10 @@ int printDate(Date *date) {
     return 1;
 }
 
-void deleteDate(Date *date) { free(date); }
+void deleteDate(Date *date) { 
+    if (!date) return;    
+    free(date); 
+}
 
 /*typedef enum DayInMonth {
     January = 31,

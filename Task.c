@@ -50,6 +50,8 @@ Task *getTask() {
 }
 
 void deleteTask(Task *task) {
+    if (!task) return;
+
     free(task->taskName);
     deleteDate(task->startTaskTime);
     deleteDate(task->endTaskTime);

@@ -62,6 +62,8 @@ int printProject(Project *project) {
 }
 
 void deleteProject(Project *project) {
+    if (!project) return;
+
     deleteListOfTasks(project->criticalTasks);
     deleteListOfTasks(project->parallelTasks);
     free(project->projectName);
