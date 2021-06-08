@@ -23,6 +23,7 @@ void addTask(ListOfTasks *list, Task *newTask) {
 
     if (compareDate(newTask->startTaskTime, temp->endTaskTime) == -1) {
         addTaskFront(list, newTask);
+        return;
     }
 
     while (temp) {
