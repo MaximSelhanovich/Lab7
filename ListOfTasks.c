@@ -69,7 +69,6 @@ void addTaskFront(ListOfTasks *list, Task *newTask) {
         list->head->prevTask = newTask;
     }
 
-
     ++list->length;
     list->head = newTask;
 }
@@ -192,9 +191,29 @@ void saveToFileListOfTasks(FILE *toWrite, ListOfTasks *list) {
     if (!toWrite || !list) return;
 
     temp = list->head;
+    fpirntf(toWrite, "%d\n", list->length);
 
     while (temp) {
-        saveToFileDate(toWrite, temp);
+        saveToFileTask(toWrite, temp);
         temp = temp->nextTask;
     }
+}
+
+ListOfTasks* loadFromFileListOfTasks(FILE *toRead) {
+    ListOfTasks *list = NULL;
+    Task *task = NULL;
+    int i = 0;
+    unsigned int length;
+
+    if (!toRead) return;
+
+    list = newListOfTasks();
+    fscanf(toRead, "%d", &length);
+
+    for (i = 0; i < length; ++i) {
+        task = loadFromFileTask(toRead);
+        addTaskEnd(list, task);
+    }
+
+    return list;
 }

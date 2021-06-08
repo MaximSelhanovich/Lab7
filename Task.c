@@ -102,9 +102,9 @@ Task* loadFromFileTask(FILE *toRead) {
     Task *task = NULL;
     char *taskName = NULL;
 
-    if (!toRead) return;
+    if (!toRead) return NULL;
 
-    task = (Task *)malloc(sizeof(Task));
+    task = (Task*)malloc(sizeof(Task));
 
     if (!task) {
         printf("\nError in memory allocation in \"Task\"\n");
@@ -115,10 +115,10 @@ Task* loadFromFileTask(FILE *toRead) {
     task->taskName = getWordFromFile(toRead);
 
     fseek(toRead, 14, SEEK_CUR);
-    loadFromFileDate(toRead, task->startTaskTime);
+    task->startTaskTime = loadFromFileDate(toRead);
 
     fseek(toRead, 12, SEEK_CUR);
-    loadFromFileDate(toRead,  task->endTaskTime);
+    task->endTaskTime = loadFromFileDate(toRead);
 
     return task;
 }

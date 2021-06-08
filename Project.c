@@ -7,13 +7,15 @@ Project *newProject() {
         printf("\nError in allocation memory in Project!!!\n");
         exit(-1);
     }
-
+    printf("Enter project name\n");
     project->projectName = getWord();
 
+    printf("Enter people on project\n");
     project->peopleOnProject = getValidInt(0, INT_MAX);
+    printf("Enter resources on project\n");
     project->resourcesOnProject = getValidDouble(0, INT_MAX);
 
-    addTaskInProject(project);
+    project->criticalTasks = project->parallelTasks = NULL;
 
     return project;
 }
@@ -75,7 +77,7 @@ void saveToFileProject(FILE *toWrite, Project *project) {
 
     fprintf(toWrite, "%s\n", "Project name");
     fprintf(toWrite, "%s\n", project->projectName);
-    fprintf(toWrite, "%d\n", project->peopleOnProject);
+    fprintf(toWrite, "%d", project->peopleOnProject);
     fprintf(toWrite, "%f\n", project->resourcesOnProject);
 
     fprintf(toWrite, "%s\n", "Critical tasks");
@@ -83,4 +85,31 @@ void saveToFileProject(FILE *toWrite, Project *project) {
 
     fprintf(toWrite, "%s\n", "Parallel tasks");
     saveToFileListOfTasks(toWrite, project->parallelTasks);
+}
+
+Project* loadFromFileProject(FILE *toRead) {
+    Project *project = NULL;
+
+    if (!toRead) return;
+
+    project = (Project*)malloc(sizeof(Project));
+
+    if (!project) {
+        printf("\nError in allocation memory in Project!!!\n");
+        exit(-1);
+    }
+
+    fseek(toRead, 13, SEEK_CUR);
+    project->projectName = getWordFromFile(toRead);
+
+    fscanf(toRead, "%d", project->peopleOnProject);
+    fscanf(toRead, "%f", project->resourcesOnProject);
+    fscanf(toRead, "%*c");
+
+    project->criticalTasks = loadFromFileListOfTasks(toRead);
+    project->parallelTasks = loadFromFileListOfTasks(toRead);
+
+    project->criticalTasks = project->parallelTasks = NULL;
+
+    return project;
 }

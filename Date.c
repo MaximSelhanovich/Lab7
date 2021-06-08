@@ -142,7 +142,7 @@ void saveToFileDate(FILE *toWrite, Date *date) {
 
 Date* loadFromFileDate(FILE *toRead) {
     Date *date = NULL;
-    if (!toRead) return;
+    if (!toRead) return NULL;
 
     date = (Date*)malloc(sizeof(Date));
 
@@ -154,6 +154,9 @@ Date* loadFromFileDate(FILE *toRead) {
     fscanf(toRead, "%d", date->day);
     fscanf(toRead, "%d", date->month);
     fscanf(toRead, "%d", date->year);
+    fscanf(toRead, "%*c");
+
+    return date;
 }
 
 /*typedef enum DayInMonth {

@@ -25,5 +25,7 @@ void deleteTask(Task *task);
 int printTask(Task *task);
 void saveToFileTask(FILE *toWrite, Task *task);
 Task* loadFromFileTask(FILE *toRead);
+void saveToFileTask(FILE *toWrite, Task *task);
+Task* loadFromFileTask(FILE *toRead);
 
 #endif

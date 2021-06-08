@@ -24,5 +24,6 @@ Task *deleteTaskInList(ListOfTasks *list, const char *nameToSearch);
 void deleteListOfTasks(ListOfTasks *list);
 int printListOfTasks(ListOfTasks *list);
 void saveToFileListOfTasks(FILE *toWrite, ListOfTasks *list);
+ListOfTasks* loadFromFileListOfTasks(FILE *toRead);
 
 #endif
