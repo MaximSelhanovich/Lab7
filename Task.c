@@ -71,3 +71,14 @@ int printTask(Task *task) {
 
     return 1;
 }
+
+void saveToFileTask(FILE *toWrite, Task *task) {
+    if (!toWrite || !task) return;
+
+    fprintf(toWrite, "%s\n", "Task name");
+    fprintf(toWrite, "%s\n", task->taskName);
+    fprintf(toWrite, "%s\n", "Starting date");
+    saveToFileDate(toWrite, task->startTaskTime);
+    fprintf(toWrite, "%s\n", "Ending date");
+    saveToFileDate(toWrite, task->endTaskTime);
+}

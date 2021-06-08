@@ -132,6 +132,14 @@ void deleteDate(Date *date) {
     free(date);
 }
 
+void saveToFileDate(FILE *toWrite, Date *date) {
+    if (!toWrite || !date) return; 
+
+    fprintf(toWrite, "%d ", date->day);
+    fprintf(toWrite, "%d ", date->month);
+    fprintf(toWrite, "%d ", date->year);
+}
+
 /*typedef enum DayInMonth {
     January = 31,
     February = 28,

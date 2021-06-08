@@ -57,3 +57,16 @@ void deleteListOfProjects(ListOfProjects *list) {
 
     free(list);
 }
+
+void saveToFileListOfProjects(FILE *toWrite, ListOfProjects *list) {
+    Task *temp = NULL;
+
+    if (!toWrite || !list) return;
+
+    temp = list->head;
+
+    while (temp) {
+        saveToFileProject(toWrite, temp);
+        temp = temp->nextTask;
+    }
+}

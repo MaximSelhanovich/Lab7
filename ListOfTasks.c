@@ -185,3 +185,16 @@ int printListOfTasks(ListOfTasks *list) {
 
     return 1;
 }
+
+void saveToFileListOfTasks(FILE *toWrite, ListOfTasks *list) {
+    Task *temp = NULL;
+
+    if (!toWrite || !list) return;
+
+    temp = list->head;
+
+    while (temp) {
+        saveToFileDate(toWrite, temp);
+        temp = temp->nextTask;
+    }
+}

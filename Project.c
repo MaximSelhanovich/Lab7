@@ -48,7 +48,7 @@ int printProject(Project *project) {
     printf("\nPeople on project: %d", project->peopleOnProject);
     printf("\nResoursec: %f", project->resourcesOnProject);
 
-    printf("\nCritical path\n");
+    printf("\nCritical tasks\n");
     printListOfTasks(project->criticalTasks);
 
     printf("\nParallel tasks\n");
@@ -68,4 +68,19 @@ void deleteProject(Project *project) {
     deleteListOfTasks(project->parallelTasks);
     free(project->projectName);
     free(project);
+}
+
+void saveToFileProject(FILE *toWrite, Project *project) {
+    if (!toWrite || !project) return; 
+
+    fprintf(toWrite, "%s\n", "Project name");
+    fprintf(toWrite, "%s\n", project->projectName);
+    fprintf(toWrite, "%d\n", project->peopleOnProject);
+    fprintf(toWrite, "%f\n", project->resourcesOnProject);
+
+    fprintf(toWrite, "%s\n", "Critical tasks");
+    saveToFileListOfTasks(toWrite, project->criticalTasks);
+
+    fprintf(toWrite, "%s\n", "Parallel tasks");
+    saveToFileListOfTasks(toWrite, project->parallelTasks);
 }
