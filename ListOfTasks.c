@@ -28,7 +28,7 @@ void addTask(ListOfTasks *list, Task *newTask) {
 
 
     while (temp) {
-        if (compareDate(newTask->startTaskTime, temp->endTaskTime) != 1) {
+        if (compareDate(newTask->startTaskTime, temp->endTaskTime) != -1) {
             if (temp == list->tail) {
                 addTaskEnd(list, newTask);
             } else {
