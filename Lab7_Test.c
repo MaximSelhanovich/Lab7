@@ -75,27 +75,21 @@ void testListOfTasks() {
     Task *task2 = NULL;
     Task *task3 = NULL;
     Task *task4 = NULL;
+    
     /*Architector\n2211\n12\n30\n2222\n5\n18\n*/
     task1 = getTask();
-    printTask(task1);
     addTaskEnd(list, task1);
-    printListOfTasks(list);
 
     /*Domachnee zadanie\n2022\n02\n21\n2030\n09\n30\n*/
     task2 = getTask();
-    printTask(task2);
     addTaskFront(list, task2);
-    printListOfTasks(list);
 
     /*Zhmuh\n2057\n9\n3\n2089\n6\n2\n*/
     task3 = getTask();
-    printTask(task3);
     addTask(list, task3);
-    printListOfTasks(list);
 
     /*Ocheredi\n2045\n8\n3\n2046\n8\n3\n*/
     task4 = getTask();
-    printTask(task4);
     addTask(list, task4);
 
     printListOfTasks(list);
