@@ -1,5 +1,19 @@
 #include "ListOfProjects.h"
 
+ListOfTasks* newListOfTasks() {
+    ListOfProjects *list = (ListOfProjects*)malloc(sizeof(ListOfProjects));
+
+    if (!list) {
+        printf("\nError in memory allocation in \"ListOfTasks\"\n");
+        exit(1);
+    }
+
+    list->head = list->tail = NULL;
+    list->length = 0;
+
+    return list;
+}
+
 void printProjectNames(ListOfProjects *list) {
     Project *temp = NULL;
 

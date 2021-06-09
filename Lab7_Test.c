@@ -50,7 +50,7 @@ void testdifDate() {
 }
 
 void testgetTask() {
-    /*Get rekted\n2222\n2\n2\n2222\n\1\n1\n2345\n2\n2\n*/
+    /*Get rekted\n2222\n2\n2\n2222\n1\n1\n2345\n2\n2\n*/
     Task *task = getTask();
 
     assert(!strcmp(task->taskName, "Get rekted"));
