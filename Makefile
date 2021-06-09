@@ -1,7 +1,7 @@
 CC = gcc
 CFLAGS = -std=c89 -pedantic -Wall
 LIBS = 
-OBJ = Lab7.c Project.c ListOfTasks.c Task.c Date.c
+OBJ = Lab7.c Project.c ListOfTasks.c Task.c Date.c ListOfProjects.c 
 OBJ_TEST = Lab7_Test.c $(OBJ)
 CPPLINTFLAGS = --filter=-readability/casting,-legal/copyright,-runtime/int
 

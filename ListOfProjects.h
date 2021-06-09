@@ -9,9 +9,9 @@ typedef struct ListOfProjects {
     unsigned int length;
 }ListOfProjects;
 
-ListOfTasks* newListOfProjects();
-void printProjectNames(ListOfProjects *list);
-void addProjetcEnd(ListOfProjects *list, Project *newProject);
+ListOfProjects* newListOfProjects();
+void printProjectShort(ListOfProjects *list);
+void addProjectEnd(ListOfProjects *list, Project *newProject);
 void addProjectFront(ListOfProjects *list, Project *newProject);
 Project *deleteProjectInList(ListOfProjects *list, const char *nameToSearch);
 void deleteListOfProjects(ListOfProjects *list);

@@ -1,5 +1,28 @@
 #include "Lab7.h"
 
+int main() {
+    FILE *file = NULL;
+    long int position = 0;
+    ListOfProjects *listOfProjects = NULL;
+
+    file = fopen("Projects.txt", "r");
+    fseek(file, 0, SEEK_END);
+    position = ftell(file);
+
+    fseek(file, 0, SEEK_SET);
+    if (position < 50) listOfProjects = newListOfProjects();
+    else
+        listOfProjects = loadFromFileListOfProjects(file);
+
+    fclose(file);
+
+    file = fopen("Projects.txt", "w");
+    saveToFileListOfProjects(file, listOfProjects);
+    fclose(file);
+
+    return 0;
+}
+
 int completeProject(ListOfProjects *listOfProjects) {
     char *nameToDelete = NULL;
     Project *temp = NULL;
@@ -23,7 +46,7 @@ int completeProject(ListOfProjects *listOfProjects) {
 
 int menu(ListOfProjects *listOfProjects) {
     char choise = 0;
-    char *nameToDelete = NULL;
+    /*char *nameToDelete = NULL;*/
     Project *temp = NULL;
 
     if (!listOfProjects) return INT_MIN;
@@ -41,10 +64,10 @@ int menu(ListOfProjects *listOfProjects) {
         {
         case 1:
             temp = newProject();
-            addProjetcEnd(listOfProjects, temp);
+            addProjectEnd(listOfProjects, temp);
             break;
         case 2:
-            printProjectNames(listOfProjects);
+            printProjectShort(listOfProjects);
             break;
         case 3:
             completeProject(listOfProjects); 
@@ -53,29 +76,6 @@ int menu(ListOfProjects *listOfProjects) {
             break;
         }
     }
+
+    return 1;
 }
-
-int main() {
-    FILE *file = NULL;
-    long long position = 0;
-    ListOfProjects *listOfProjects = NULL;
-    file = fopen("Projects.txt", "r");
-    fseek(file, 0, SEEK_END);
-    position = ftell(file);
-    if (position < 50) listOfProjects = newListOfTasks();
-    else
-        listOfProjects = loadFromFileListOfProjects(file);
-
-    
-
-
-    fclose(file);
-
-    file = fopen("Projects.txt", "w");
-    saveToFileListOfProjects(file, listOfProjects);
-    fclose(file);
-
-    return 0;
-}
-
-

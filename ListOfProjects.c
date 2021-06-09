@@ -1,6 +1,6 @@
 #include "ListOfProjects.h"
 
-ListOfTasks* newListOfProjects() {
+ListOfProjects* newListOfProjects() {
     ListOfProjects *list = (ListOfProjects*)malloc(sizeof(ListOfProjects));
 
     if (!list) {
@@ -27,7 +27,7 @@ void printProjectShort(ListOfProjects *list) {
     }
 }
 
-void addProjetcEnd(ListOfProjects *list, Project *newProject) {
+void addProjectEnd(ListOfProjects *list, Project *newProject) {
     if (!list || !newProject) return;
 
     if (!list->head) {
@@ -102,16 +102,16 @@ void deleteListOfProjects(ListOfProjects *list) {
 }
 
 void saveToFileListOfProjects(FILE *toWrite, ListOfProjects *list) {
-    Task *temp = NULL;
+    Project *temp = NULL;
 
     if (!toWrite || !list) return;
 
     temp = list->head;
-    fpirntf(toWrite, "%d\n", list->length);
+    fprintf(toWrite, "%d\n", list->length);
 
     while (temp) {
         saveToFileProject(toWrite, temp);
-        temp = temp->nextTask;
+        temp = temp->nextProject;
     }
 }
 
@@ -121,10 +121,10 @@ ListOfProjects* loadFromFileListOfProjects(FILE *toRead) {
     int i = 0;
     unsigned int length = 0;
 
-    if (!toRead) return;
+    if (!toRead) return NULL;
 
     list = newListOfProjects();
-    fscanf(toRead, "%d", &length);
+    fscanf(toRead, "%u", &length);
 
     for (i = 0; i < length; ++i) {
         project = loadFromFileProject(toRead);
