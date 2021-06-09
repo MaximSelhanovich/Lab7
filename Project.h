@@ -15,6 +15,7 @@ typedef struct Project {
 
 void addTaskInProject(Project *project);
 Project *newProject();
+int printDeadlines(Project *project);
 int printProject(Project *project);
 void deleteProject(Project *project);
 void saveToFileProject(FILE *toWrite, Project *project);

@@ -1,6 +1,6 @@
 #include "ListOfProjects.h"
 
-ListOfTasks* newListOfTasks() {
+ListOfTasks* newListOfProjects() {
     ListOfProjects *list = (ListOfProjects*)malloc(sizeof(ListOfProjects));
 
     if (!list) {
@@ -14,7 +14,7 @@ ListOfTasks* newListOfTasks() {
     return list;
 }
 
-void printProjectNames(ListOfProjects *list) {
+void printProjectShort(ListOfProjects *list) {
     Project *temp = NULL;
 
     if (!list) return;
@@ -23,6 +23,7 @@ void printProjectNames(ListOfProjects *list) {
 
     while (temp) {
         printf("%s", temp->projectName);
+        printDeadlines(temp);
     }
 }
 

@@ -44,6 +44,14 @@ void addTaskInProject(Project *project) {
     }
 }
 
+int printDeadlines(Project *project) {
+    if (!project) return 0;
+
+    printDate(project->criticalTasks->head->startTaskTime);
+    printDate(project->criticalTasks->tail->endTaskTime);
+
+    return 1;
+}
 int printProject(Project *project) {
     if (!project || !project->criticalTasks ||
         !project->parallelTasks) return 0;
@@ -58,9 +66,8 @@ int printProject(Project *project) {
     printf("\nParallel tasks\n");
     printListOfTasks(project->parallelTasks);
 
-    printf("\nTotal srok\n");
-    printDate(project->criticalTasks->head->startTaskTime);
-    printDate(project->criticalTasks->tail->endTaskTime);
+    printf("\nDeadlines\n");
+    printDeadlines(project);
 
     return 1;
 }

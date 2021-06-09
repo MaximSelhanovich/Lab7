@@ -9,6 +9,7 @@ typedef struct ListOfProjects {
     unsigned int length;
 }ListOfProjects;
 
+ListOfTasks* newListOfProjects();
 void printProjectNames(ListOfProjects *list);
 void addProjetcEnd(ListOfProjects *list, Project *newProject);
 void addProjectFront(ListOfProjects *list, Project *newProject);
