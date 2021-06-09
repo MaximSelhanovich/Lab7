@@ -6,6 +6,11 @@ int main() {
     ListOfProjects *listOfProjects = NULL;
 
     file = fopen("Projects.txt", "r");
+    if (!file) {
+        printf("\nError in openning file\n");
+        exit(-1);
+    }
+
     fseek(file, 0, SEEK_END);
     position = ftell(file);
 
@@ -13,6 +18,8 @@ int main() {
     if (position < 50) listOfProjects = newListOfProjects();
     else
         listOfProjects = loadFromFileListOfProjects(file);
+
+    menu(listOfProjects);
 
     fclose(file);
 
@@ -22,7 +29,7 @@ int main() {
 
     return 0;
 }
-
+    
 int completeProject(ListOfProjects *listOfProjects) {
     char *nameToDelete = NULL;
     Project *temp = NULL;

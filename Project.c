@@ -86,7 +86,7 @@ void saveToFileProject(FILE *toWrite, Project *project) {
 
     fprintf(toWrite, "%s\n", "Project name");
     fprintf(toWrite, "%s\n", project->projectName);
-    fprintf(toWrite, "%d", project->peopleOnProject);
+    fprintf(toWrite, "%d ", project->peopleOnProject);
     fprintf(toWrite, "%f\n", project->resourcesOnProject);
 
     fprintf(toWrite, "%s\n", "Critical tasks");

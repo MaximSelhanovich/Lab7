@@ -188,7 +188,10 @@ int printListOfTasks(ListOfTasks *list) {
 void saveToFileListOfTasks(FILE *toWrite, ListOfTasks *list) {
     Task *temp = NULL;
 
-    if (!toWrite || !list) return;
+    if (!toWrite || !list) {
+        fprintf(toWrite, "%d\n", 0);
+        return;
+    }
 
     temp = list->head;
     fprintf(toWrite, "%d\n", list->length);
