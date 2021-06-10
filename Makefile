@@ -13,7 +13,7 @@ Lab7_Test: $(OBJ_TEST)
 
 CheckValgrind:
 	echo "321\n2024\n-4\n2\nasdf\n29\n2022\n5\n28\n2026\n6\n30\n2026\n6\n30\nGet rekted\n2222\n2\n2\n" > input.txt
-	echo "2222\n1\n1\n2345\n2\n2\nArchitector\n2211\n12\n30\n2222\n5\n18\nDomachnee zadanie\n2022\n02\n21\n2030\n09\n30\nZhmuh\n2057\n9\n3\n2089\n6\n2\nOcheredi\n2045\n8\n3\n2046\n8\n3\nKursach\n2021\n6\n7\n2021\n6\n8\nProjext test\n678\n3\nTest\n789\n32\nKek\n543\n67\nnoooooo\n78\n09\nVabalabadabdab\n963\n8\n1\nZhmuh\n2057\n9\n3\n2089\n6\n2\n3\n\nDomachnee zadanie\n2022\n02\n21\n2030\n09\n30\n3\n3\n" >> input.txt
+	echo "2222\n1\n1\n2345\n2\n2\nArchitector\n2211\n12\n30\n2222\n5\n18\nDomachnee zadanie\n2022\n02\n21\n2030\n09\n30\nZhmuh\n2057\n9\n3\n2089\n6\n2\nOcheredi\n2045\n8\n3\n2046\n8\n3\nKursach\n2021\n6\n7\n2021\n6\n8\nProjext test\n678\n3\nTest\n789\n32\nKek\n543\n67\nnoooooo\n78\n09\nVabalabadabdab\n963\n8\n1\nZhmuh\n2057\n9\n3\n2089\n6\n2\n3\nDomachnee zadanie\n2022\n02\n21\n2030\n09\n30\n3\n3\n" >> input.txt
 	valgrind --leak-check=full ./Lab7_Test < input.txt
 
 CheckLinter:
