@@ -130,6 +130,7 @@ ListOfProjects* loadFromFileListOfProjects(FILE *toRead) {
 
     for (i = 0; i < length; ++i) {
         project = loadFromFileProject(toRead);
+        printProject(project);
         addProjectEnd(list, project);
     }
 

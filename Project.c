@@ -117,11 +117,11 @@ Project* loadFromFileProject(FILE *toRead) {
     project->projectName = getWordFromFile(toRead);
     clear(toRead);
 
-    fscanf(toRead, "%d", &project->peopleOnProject);
+    fscanf(toRead, " %d", &project->peopleOnProject);
+
+    fscanf(toRead, " %lf", &project->resourcesOnProject);
     clear(toRead);
-    fscanf(toRead, "%lf", &project->resourcesOnProject);
-    clear(toRead);
-    clear(toRead);
+    /*clear(toRead);*/
     project->criticalTasks = loadFromFileListOfTasks(toRead);
     clear(toRead);
     project->parallelTasks = loadFromFileListOfTasks(toRead);
