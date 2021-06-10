@@ -157,7 +157,7 @@ void testListOFProjects() {
     assert(project5->peopleOnProject == 963);*/
 
     addProjectEnd(list, project1);
-    assert(list->head->peopleOnProject == 678);
+    assert(list->tail->peopleOnProject == 678);
     addProjectFront(list, project2);
     assert(list->head->resourcesOnProject == 32);
     addProjectEnd(list, project3);
@@ -203,7 +203,7 @@ void testListOFProjects() {
     assert(project4);
     deleteProject(project4);
 
-    deleteListOfProjects(list);
+   /* deleteListOfProjects(list);*/
 }
 
 #undef main
