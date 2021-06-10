@@ -175,7 +175,6 @@ void testListOFProjects() {
     assert(printDeadlines(project5));
     assert(!printDeadlines(NULL));
 
-
     assert(printProjectShort(list));
     assert(!printProjectShort(NULL));
 
@@ -191,7 +190,7 @@ void testListOFProjects() {
 
     project1 = deleteProjectInList(list, "jdfgvrtjyg");
     assert(!project1);
-   
+
     project2 = deleteProjectInList(list, "Projext test");
     assert(project2);
     deleteProject(project2);
