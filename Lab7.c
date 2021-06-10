@@ -14,9 +14,9 @@ int main() {
         printf("we should be here");
         fseek(file, 0, SEEK_SET);
         listOfProjects = loadFromFileListOfProjects(file);
-    }
-    else
+    } else {
         listOfProjects = newListOfProjects();
+    }
 
     menu(listOfProjects);
 
