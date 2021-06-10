@@ -191,7 +191,7 @@ void testListOFProjects() {
 
     project1 = deleteProjectInList(list, "jdfgvrtjyg");
     assert(!project1);
-    
+   
     project2 = deleteProjectInList(list, "Projext test");
     assert(project2);
     deleteProject(project2);
