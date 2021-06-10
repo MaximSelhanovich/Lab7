@@ -80,8 +80,8 @@ int printProject(Project *project) {
 int deleteProject(Project *project) {
     if (!project) return 0;
 
-    deleteListOfTasks(project->criticalTasks);
-    deleteListOfTasks(project->parallelTasks);
+    if (project->criticalTasks) deleteListOfTasks(project->criticalTasks);
+    if (project->parallelTasks) deleteListOfTasks(project->parallelTasks);
     free(project->projectName);
     free(project);
 
