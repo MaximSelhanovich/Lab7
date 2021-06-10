@@ -211,7 +211,8 @@ ListOfTasks* loadFromFileListOfTasks(FILE *toRead) {
     if (!toRead) return NULL;
 
     list = newListOfTasks();
-    fscanf(toRead, " %u", &length);
+    fscanf(toRead, "%u", &length);
+    clear(toRead);
 
     for (i = 0; i < length; ++i) {
         task = loadFromFileTask(toRead);

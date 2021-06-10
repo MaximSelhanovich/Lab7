@@ -11,7 +11,6 @@ int main() {
     }
 
     if (getc(file) != EOF) {
-        printf("we should be here");
         fseek(file, 0, SEEK_SET);
         listOfProjects = loadFromFileListOfProjects(file);
     } else {

@@ -26,6 +26,8 @@ typedef struct Date {
     int year;
 }Date;
 
+void clear(FILE *toClear);
+
 int getValidInt(int minValue, int maxValue);
 double getValidDouble(int minValue, int maxValue);
 int getMaxDay(Month month);

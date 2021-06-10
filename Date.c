@@ -1,5 +1,10 @@
 #include "Date.h"
 
+void clear(FILE *toClear) {
+    char c;
+    while ((c = getc(toClear)) != '\n' && c != EOF) {}
+}
+
 /*These functiion can be used for day, month and year*/
 int getValidInt(int minValue, int maxValue) {
     int temp;
@@ -19,12 +24,13 @@ int getValidInt(int minValue, int maxValue) {
 double getValidDouble(int minValue, int maxValue) {
     double temp;
     char goodCheck;
+    char c;
 
     while (!scanf("%lf", &temp) || temp < minValue || temp > maxValue ||
           (scanf("%c", &goodCheck) && goodCheck != '\n')) {
         printf("Wrong input!\nDate must be >= %d && <= %d.\n"
                "Please, try again: ", minValue, maxValue);
-        fflush(stdin);
+        while ((c = getchar()) != '\n' && c != EOF) {}
     }
 
     return temp;
@@ -137,7 +143,7 @@ void saveToFileDate(FILE *toWrite, Date *date) {
 
     fprintf(toWrite, "%d ", date->day);
     fprintf(toWrite, "%d ", date->month);
-    fprintf(toWrite, "%d ", date->year);
+    fprintf(toWrite, "%d\n", date->year);
 }
 
 Date* loadFromFileDate(FILE *toRead) {
@@ -151,10 +157,12 @@ Date* loadFromFileDate(FILE *toRead) {
         exit(1);
     }
 
-    fscanf(toRead, " %d", &date->day);
-    fscanf(toRead, " %d", &date->month);
-    fscanf(toRead, " %d", &date->year);
-    /*fscanf(toRead, "%*c");*/
+    fscanf(toRead, "%d", &date->day);
+    clear(toRead);
+    fscanf(toRead, "%d", &date->month);
+    clear(toRead);
+    fscanf(toRead, "%d", &date->year);
+    clear(toRead);
 
     return date;
 }

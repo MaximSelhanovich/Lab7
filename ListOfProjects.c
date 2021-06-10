@@ -124,12 +124,9 @@ ListOfProjects* loadFromFileListOfProjects(FILE *toRead) {
 
     if (!toRead) return NULL;
 
-    fseek(toRead, 0, SEEK_SET);
-
     list = newListOfProjects();
-    fscanf(toRead, " %u", &length);
-    printf("\n\n%u\n\n", length);
-    /*fscanf(toRead, "%*c");*/
+    fscanf(toRead, "%u", &length);
+    clear(toRead);
 
     for (i = 0; i < length; ++i) {
         project = loadFromFileProject(toRead);

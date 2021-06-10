@@ -30,7 +30,7 @@ char* getWordFromFile(FILE *toRead) {
     if (!tempLine) return NULL;
 
     fscanf(toRead, "%[^\n]255s", tempLine);
-    /*fscanf(toRead, "%*c");*/
+    clear(toRead);
     tempLine = resizeLine(tempLine);
     return tempLine;
 }
@@ -110,14 +110,17 @@ Task* loadFromFileTask(FILE *toRead) {
         exit(1);
     }
 
-    fseek(toRead, 10, SEEK_CUR);
+    clear(toRead);
     task->taskName = getWordFromFile(toRead);
+    clear(toRead);
 
-    fseek(toRead, 14, SEEK_CUR);
+    clear(toRead);
     task->startTaskTime = loadFromFileDate(toRead);
+    clear(toRead);
 
-    fseek(toRead, 12, SEEK_CUR);
+    clear(toRead);
     task->endTaskTime = loadFromFileDate(toRead);
+    clear(toRead);
 
     return task;
 }
