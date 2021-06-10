@@ -156,14 +156,14 @@ void testListOFProjects() {
     assert(!strcmp(project4->projectName, "noooooo"));
     assert(project5->peopleOnProject == 963);*/
 
-    /*addProjectEnd(list, project1);
+    addProjectEnd(list, project1);
     assert(list->tail->peopleOnProject == 678);
     addProjectFront(list, project2);
     assert(list->head->resourcesOnProject == 32);
     addProjectEnd(list, project3);
     assert(!strcmp(list->tail->projectName, "Kek"));
     addProjectFront(list, project4);
-    assert(list->head->peopleOnProject == 78);*/
+    assert(list->head->peopleOnProject == 78);
 
     /*1\nZhmuh\n2057\n9\n3\n2089\n6\n2\n3\n*/
     /*addTaskInProject(project5);*/
@@ -190,18 +190,18 @@ void testListOFProjects() {
 
     /*project1 = deleteProjectInList(list, "jdfgvrtjyg");
     assert(!project1);*/
-deleteProject(project1);
+    /*deleteProject(project1);*/
     /*project2 = deleteProjectInList(list, "Projext test");
     assert(project2);*/
-    deleteProject(project2);
+    /*deleteProject(project2);*/
 
     /*project3 = deleteProjectInList(list, "Kek");
     assert(project3);*/
-    deleteProject(project3);
+    /*deleteProject(project3);*/
 
     /*project4 = deleteProjectInList(list, "noooooo");
     assert(project4);*/
-    deleteProject(project4);
+    /*deleteProject(project4);*/
 
     deleteProject(project5);
 
