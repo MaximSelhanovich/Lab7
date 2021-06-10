@@ -202,12 +202,11 @@ deleteProject(project1);
     /*project4 = deleteProjectInList(list, "noooooo");
     assert(project4);*/
     deleteProject(project4);
-    
+
     deleteProject(project5);
 
-   deleteListOfProjects(list);
+    deleteListOfProjects(list);
 }
-
 #undef main
 
 int main() {
