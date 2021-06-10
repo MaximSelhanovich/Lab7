@@ -45,13 +45,18 @@ void addTaskInProject(Project *project) {
 }
 
 int printDeadlines(Project *project) {
-    if (!project) return 0;
+    if (!project || !project->criticalTasks || !project->parallelTasks ||
+        !project->criticalTasks->head || !project->parallelTasks->head) {
+            printf("\nThere are no tasks\n");
+            return 0;
+        }
 
     printDate(project->criticalTasks->head->startTaskTime);
     printDate(project->criticalTasks->tail->endTaskTime);
 
     return 1;
 }
+
 int printProject(Project *project) {
     if (!project || !project->criticalTasks ||
         !project->parallelTasks) return 0;
@@ -112,9 +117,9 @@ Project* loadFromFileProject(FILE *toRead) {
     project->projectName = getWordFromFile(toRead);
     clear(toRead);
 
-    fscanf(toRead, " %d", &project->peopleOnProject);
+    fscanf(toRead, "%d", &project->peopleOnProject);
     clear(toRead);
-    fscanf(toRead, " %lf", &project->resourcesOnProject);
+    fscanf(toRead, "%lf", &project->resourcesOnProject);
     clear(toRead);
     clear(toRead);
     project->criticalTasks = loadFromFileListOfTasks(toRead);
