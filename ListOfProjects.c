@@ -14,10 +14,10 @@ ListOfProjects* newListOfProjects() {
     return list;
 }
 
-void printProjectShort(ListOfProjects *list) {
+int printProjectShort(ListOfProjects *list) {
     Project *temp = NULL;
 
-    if (!list) return;
+    if (!list) return 0;
 
     temp = list->head;
 
@@ -26,6 +26,8 @@ void printProjectShort(ListOfProjects *list) {
         printDeadlines(temp);
         temp = temp->nextProject;
     }
+
+    return 1;
 }
 
 void addProjectEnd(ListOfProjects *list, Project *newProject) {

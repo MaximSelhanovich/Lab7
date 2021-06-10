@@ -17,7 +17,7 @@ void addTaskInProject(Project *project);
 Project *newProject();
 int printDeadlines(Project *project);
 int printProject(Project *project);
-void deleteProject(Project *project);
+int deleteProject(Project *project);
 void saveToFileProject(FILE *toWrite, Project *project);
 Project* loadFromFileProject(FILE *toRead);
 Task *deleteTaskInProject(Project *project, char *nameToSearch);

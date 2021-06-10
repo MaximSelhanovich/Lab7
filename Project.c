@@ -77,13 +77,15 @@ int printProject(Project *project) {
     return 1;
 }
 
-void deleteProject(Project *project) {
-    if (!project) return;
+int deleteProject(Project *project) {
+    if (!project) return 0;
 
     deleteListOfTasks(project->criticalTasks);
     deleteListOfTasks(project->parallelTasks);
     free(project->projectName);
     free(project);
+
+    return 1;
 }
 
 void saveToFileProject(FILE *toWrite, Project *project) {

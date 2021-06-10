@@ -10,7 +10,7 @@ typedef struct ListOfProjects {
 }ListOfProjects;
 
 ListOfProjects* newListOfProjects();
-void printProjectShort(ListOfProjects *list);
+int printProjectShort(ListOfProjects *list);
 void addProjectEnd(ListOfProjects *list, Project *newProject);
 void addProjectFront(ListOfProjects *list, Project *newProject);
 Project *deleteProjectInList(ListOfProjects *list, const char *nameToSearch);

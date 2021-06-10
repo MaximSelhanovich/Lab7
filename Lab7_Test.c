@@ -1,6 +1,7 @@
 #include "Date.h"
 #include "Task.h"
 #include "ListOfTasks.h"
+#include "ListOfProjects.h"
 #include <assert.h>
 #include <string.h>
 
@@ -136,6 +137,76 @@ void testListOfTasks() {
     deleteListOfTasks(list);
 }
 
+void testListOFProjects() {
+    ListOfProjects *list = newListOfProjects();
+    /*Projext test\n678\n3\n*/
+    Project *project1 = newProject();
+    /*Test\n789\n32\n*/
+    Project *project2 = newProject();
+    /*Kek\n543\n67\n*/
+    Project *project3 = newProject();
+    /*noooooo\n78\n09\n*/
+    Project *project4 = newProject();
+    /*Vabalabadabdab\n963\n8\n*/
+    Project *project5 = newProject();
+
+    assert(!strcmp(project1->projectName, "Projext test"));
+    assert(project2->peopleOnProject == 789);
+    assert(project3->resourcesOnProject == 67);
+    assert(!strcmp(project4->projectName, "noooooo"));
+    assert(project5->peopleOnProject == 963);
+
+    addProjectEnd(list, project1);
+    assert(list->head->peopleOnProject == 678);
+    addProjectFront(list, project2);
+    assert(list->head->resourcesOnProject == 32);
+    addProjectEnd(list, project3);
+    assert(!strcmp(list->tail->projectName, "Kek"));
+    addProjectFront(list, project4);
+    assert(list->head->peopleOnProject == 78);
+
+    /*1\nZhmuh\n2057\n9\n3\n2089\n6\n2\n3\n*/
+    addTaskInProject(project5);
+    /*2\nDomachnee zadanie\n2022\n02\n21\n2030\n09\n30\n3\n*/
+    addTaskInProject(project5);
+    /*3\n*/
+    addTaskInProject(project5);
+
+    assert(printDeadlines(project5));
+    assert(!printDeadlines(NULL));
+
+
+    assert(printProjectShort(list));
+    assert(!printProjectShort(NULL));
+
+    assert(printProject(project5));
+    assert(!printProject(NULL));
+
+    assert(!deleteTaskInProject(project5, "Loop"));
+    assert(deleteTaskInProject(project5, "Domachnee zadanie"));
+    assert(deleteTaskInProject(project5, "Zhmuh"));
+
+    assert(deleteProject(project5));
+    assert(!deleteProject(NULL));
+
+    project1 = deleteProjectInList(list, "jdfgvrtjyg");
+    assert(!project1);
+    
+    project2 = deleteProjectInList(list, "Projext test");
+    assert(project2);
+    deleteProject(project2);
+
+    project3 = deleteProjectInList(list, "Kek");
+    assert(project3);
+    deleteProject(project3);
+
+    project4 = deleteProjectInList(list, "noooooo");
+    assert(project4);
+    delete(project4);
+
+    deleteListOfProjects(list);
+}
+
 #undef main
 
 int main() {
@@ -144,6 +215,6 @@ int main() {
     testdifDate();
     testgetTask();
     testListOfTasks();
-
+    testListOFProjects();
     return 0;
 }
