@@ -147,14 +147,11 @@ void testListOFProjects() {
     Project *project3 = newProject();
     /*noooooo\n78\n09\n*/
     Project *project4 = newProject();
-    /*Vabalabadabdab\n963\n8\n*/
-    Project *project5 = newProject();
 
     assert(!strcmp(project1->projectName, "Projext test"));
     assert(project2->peopleOnProject == 789);
     assert(project3->resourcesOnProject == 67);
     assert(!strcmp(project4->projectName, "noooooo"));
-    assert(project5->peopleOnProject == 963);
 
     addProjectEnd(list, project1);
     assert(list->head->peopleOnProject == 678);
@@ -165,16 +162,13 @@ void testListOFProjects() {
     addProjectFront(list, project4);
     assert(list->head->peopleOnProject == 78);
 
-    assert(!printDeadlines(project5));
     assert(!printDeadlines(NULL));
 
     assert(printProjectShort(list));
     assert(!printProjectShort(NULL));
-
-    assert(printProject(project5));
+    
     assert(!printProject(NULL));
 
-    assert(deleteProject(project5));
     assert(!deleteProject(NULL));
 
     project1 = deleteProjectInList(list, "jdfgvrtjyg");
