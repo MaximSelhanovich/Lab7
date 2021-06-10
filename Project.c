@@ -130,3 +130,18 @@ Project* loadFromFileProject(FILE *toRead) {
 
     return project;
 }
+
+Task *deleteTaskInProject(Project *project, char *nameToSearch) {
+    Task *temp = NULL;
+
+    if (!project || !nameToSearch ||
+        !project->criticalTasks || !project->parallelTasks) return NULL;
+
+    temp = deleteTaskInList(project->criticalTasks, nameToSearch);
+    if (temp) return temp;
+
+    temp = deleteTaskInList(project->parallelTasks, nameToSearch);
+
+    return temp;
+    
+}

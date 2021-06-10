@@ -114,7 +114,7 @@ void testListOfTasks() {
     assert(!strcmp(list->tail->taskName, "Zhmuh"));
 
     assert(searchTask(list, "Ocheredi"));
-
+    /**/
     task1 = deleteTaskInList(list, "Ocheredi");
     assert(!strcmp(task1->taskName, "Ocheredi"));
     deleteTask(task1);

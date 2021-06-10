@@ -28,31 +28,55 @@ int main() {
     return 0;
 }
 
-int completeProject(ListOfProjects *listOfProjects) {
-    char *nameToDelete = NULL;
-    Project *temp = NULL;
+Project* workWithProject(Project* project) {
+    Task *activeTask = NULL;
+    char choise = 0;
+    char *nameToSearch = NULL;
 
-    if (!listOfProjects || !listOfProjects->head) return 0;
+    if (!project) return NULL;
 
-    printf("\nEnter name to \"complete\" project\n");
-    nameToDelete = getWord();
-    temp = deleteProjectInList(listOfProjects, nameToDelete);
+    printf("Make your choise\n"
+           "1)Add critical task\n"
+           "2)Add parallel task\n"
+           "3)Complete task\n"
+           "4)Complete this project\n"
+           "5)Exit\n");
+    
+    while (choise != 5) {
+        switch(choise) {
+        case 1:
+            activeTask = getTask();
+            addTask(project->criticalTasks, activeTask);
+            break;
+        case 2:
+            activeTask = getTask();
+            addTask(project->parallelTasks, activeTask);
+            break;
+        case 3:
+            nameToSearch = getWord();
+            activeTask = deleteTaskInProject(project, nameToSearch);
+            if (activeTask) deleteTask(activeTask);
+            else 
+                printf("There is no such task in project");
 
-    if (!temp) {
-        printf("There ir no project with name %s", nameToDelete);
-        return 0;
-    } else {
-        printProject(temp);
-        deleteProject(temp);
+            free(nameToSearch);
+            break;
+        case 4:
+            deleteProject(project);
+            return NULL;
+            break;
+        default:
+            break;
+        }
     }
 
-    return 1;
+    return project;
 }
 
 int menu(ListOfProjects *listOfProjects) {
     char choise = 0;
-    /*char *nameToDelete = NULL;*/
-    Project *temp = NULL;
+    char *nameToDelete = NULL;
+    Project *activeProject = NULL;
 
     if (!listOfProjects) return INT_MIN;
 
@@ -60,21 +84,31 @@ int menu(ListOfProjects *listOfProjects) {
         printf("Make your choise\n"
                "1)Add project\n"
                "2)View all projects\n"
-               "3)Complete project\n"
+               "3)Work with project\n"
                "4)Exit\n");
 
         choise = getValidInt(1, 4);
 
         switch (choise) {
         case 1:
-            temp = newProject();
-            addProjectEnd(listOfProjects, temp);
+            activeProject = newProject();
+            addProjectEnd(listOfProjects, activeProject);
             break;
         case 2:
             printProjectShort(listOfProjects);
             break;
         case 3:
-            completeProject(listOfProjects);
+            nameToDelete = getWord();
+            activeProject = deleteProjectInList(listOfProjects, nameToDelete);
+
+            if (activeProject) {
+                activeProject =  workWithProject(activeProject);
+            } else {
+                printf("\nThere is no such project");
+            }
+
+            if (activeProject) addProjectEnd(listOfProjects, activeProject);
+            free(nameToDelete);
             break;
         default:
             break;

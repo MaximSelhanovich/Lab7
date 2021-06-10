@@ -9,8 +9,8 @@
 #include "ListOfProjects.h"
 #include "ListOfTasks.h"
 
-int completeProject(ListOfProjects *listOfProjects);
 int menu(ListOfProjects *listOfProjects);
+Project* workWithProject(Project* project);
 
 
 

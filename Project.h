@@ -20,5 +20,6 @@ int printProject(Project *project);
 void deleteProject(Project *project);
 void saveToFileProject(FILE *toWrite, Project *project);
 Project* loadFromFileProject(FILE *toRead);
+Task *deleteTaskInProject(Project *project, char *nameToSearch);
 
 #endif
