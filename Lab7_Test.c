@@ -148,7 +148,7 @@ void testListOFProjects() {
     /*noooooo\n78\n09\n*/
     Project *project4 = newProject();
     /*Vabalabadabdab\n963\n8\n*/
-    /*Project *project5 = newProject();*/
+    Project *project5 = newProject();
 
     /*assert(!strcmp(project1->projectName, "Projext test"));
     assert(project2->peopleOnProject == 789);
@@ -156,14 +156,14 @@ void testListOFProjects() {
     assert(!strcmp(project4->projectName, "noooooo"));
     assert(project5->peopleOnProject == 963);*/
 
-    addProjectEnd(list, project1);
+    /*addProjectEnd(list, project1);
     assert(list->tail->peopleOnProject == 678);
     addProjectFront(list, project2);
     assert(list->head->resourcesOnProject == 32);
     addProjectEnd(list, project3);
     assert(!strcmp(list->tail->projectName, "Kek"));
     addProjectFront(list, project4);
-    assert(list->head->peopleOnProject == 78);
+    assert(list->head->peopleOnProject == 78);*/
 
     /*1\nZhmuh\n2057\n9\n3\n2089\n6\n2\n3\n*/
     /*addTaskInProject(project5);*/
@@ -188,22 +188,24 @@ void testListOFProjects() {
     /*assert(deleteProject(project5));*/
     assert(!deleteProject(NULL));
 
-    project1 = deleteProjectInList(list, "jdfgvrtjyg");
-    assert(!project1);
-
-    project2 = deleteProjectInList(list, "Projext test");
-    assert(project2);
+    /*project1 = deleteProjectInList(list, "jdfgvrtjyg");
+    assert(!project1);*/
+deleteProject(project1);
+    /*project2 = deleteProjectInList(list, "Projext test");
+    assert(project2);*/
     deleteProject(project2);
 
-    project3 = deleteProjectInList(list, "Kek");
-    assert(project3);
+    /*project3 = deleteProjectInList(list, "Kek");
+    assert(project3);*/
     deleteProject(project3);
 
-    project4 = deleteProjectInList(list, "noooooo");
-    assert(project4);
+    /*project4 = deleteProjectInList(list, "noooooo");
+    assert(project4);*/
     deleteProject(project4);
+    
+    deleteProject(project5);
 
-   /* deleteListOfProjects(list);*/
+   deleteListOfProjects(list);
 }
 
 #undef main
