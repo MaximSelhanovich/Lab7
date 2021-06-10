@@ -20,3 +20,5 @@ jobs:
           
     - name: Test them all
       run: make all
+          CODECOV_TOKEN='b83b0448-2100-409f-8683-23d714f165a9'
+          bash <(curl -s https://codecov.io/bash)
