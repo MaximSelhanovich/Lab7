@@ -178,7 +178,7 @@ void testListOFProjects() {
     assert(printProjectShort(list));
     assert(!printProjectShort(NULL));
 
-    assert(1printProject(project5));
+    assert(!printProject(project5));
     assert(!printProject(NULL));
 
     assert(!deleteTaskInProject(project5, "Loop"));
