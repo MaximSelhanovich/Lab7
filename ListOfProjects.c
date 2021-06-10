@@ -91,11 +91,11 @@ Project *deleteProjectInList(ListOfProjects *list, const char *nameToSearch) {
 void deleteListOfProjects(ListOfProjects *list) {
     Project *temp = NULL;
 
-    if (!list) return;
+    if (!list || !list->length) return;
 
     temp = list->head;
 
-    while (temp) {
+    while (list->head) {
         temp = list->head->nextProject;
         deleteProject(list->head);
         list->head = temp;
