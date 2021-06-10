@@ -202,7 +202,7 @@ void testListOFProjects() {
 
     project4 = deleteProjectInList(list, "noooooo");
     assert(project4);
-    delete(project4);
+    deleteProject(project4);
 
     deleteListOfProjects(list);
 }
