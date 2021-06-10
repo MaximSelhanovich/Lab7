@@ -9,7 +9,7 @@ Lab7: $(OBJ)
 	$(CC) $(CFLAGS) $(OBJ) -o Lab7
 
 Lab7_Test: $(OBJ_TEST)
-	$(CC) $(CFLAGS) $(OBJ_TEST) -o Lab7_Test -Dmain=_main $(LIBS)
+	$(CC) $(CFLAGS) $(OBJ_TEST) -o Lab7_Test -Dmain=_main -fprofile-arcs -ftest-coverage -lgcov -g $(LIBS)
 
 CheckValgrind:
 	echo "321\n2024\n-4\n2\nasdf\n29\n2022\n5\n28\n2026\n6\n30\n2026\n6\n30\nGet rekted\n2222\n2\n2\n" > input.txt
