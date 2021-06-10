@@ -68,6 +68,7 @@ Project *deleteProjectInList(ListOfProjects *list, const char *nameToSearch) {
     while (temp) {
         if (!strcmp(temp->projectName, nameToSearch)) {
             printProject(temp);
+            --list->length;
 
             if (temp == list->head) {
                 list->head = list->head->nextProject;
