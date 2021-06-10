@@ -34,7 +34,7 @@ Project* workWithProject(Project* project) {
     char *nameToSearch = NULL;
 
     if (!project) return NULL;
-    
+
     while (choise != 5) {
         printf("Make your choise\n"
                "1)Add critical task\n"
@@ -44,7 +44,7 @@ Project* workWithProject(Project* project) {
                "5)Exit\n");
 
         choise = getValidInt(1, 5);
-        switch(choise) {
+        switch (choise) {
         case 1:
             activeTask = getTask();
             addTask(project->criticalTasks, activeTask);
@@ -57,7 +57,7 @@ Project* workWithProject(Project* project) {
             nameToSearch = getWord();
             activeTask = deleteTaskInProject(project, nameToSearch);
             if (activeTask) deleteTask(activeTask);
-            else 
+            else
                 printf("There is no such task in project");
 
             free(nameToSearch);

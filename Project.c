@@ -143,5 +143,4 @@ Task *deleteTaskInProject(Project *project, char *nameToSearch) {
     temp = deleteTaskInList(project->parallelTasks, nameToSearch);
 
     return temp;
-    
 }
