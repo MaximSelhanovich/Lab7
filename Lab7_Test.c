@@ -172,7 +172,7 @@ void testListOFProjects() {
     /*3\n*/
     addTaskInProject(project5);
 
-    assert(printDeadlines(project5));
+    /*assert(printDeadlines(project5));*/
     assert(!printDeadlines(NULL));
 
     /*assert(printProjectShort(list));*/
