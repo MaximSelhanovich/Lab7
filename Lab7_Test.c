@@ -199,9 +199,9 @@ void testListOFProjects() {
     assert(project3);*/
     /*deleteProject(project3);*/
 
-    /*project4 = deleteProjectInList(list, "noooooo");
-    assert(project4);*/
-    /*deleteProject(project4);*/
+    project4 = deleteProjectInList(list, "noooooo");
+    assert(project4);
+    deleteProject(project4);
 
     deleteProject(project5);
 
