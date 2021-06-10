@@ -108,14 +108,17 @@ Project* loadFromFileProject(FILE *toRead) {
         exit(-1);
     }
 
-    fseek(toRead, 13, SEEK_CUR);
+    /*fseek(toRead, 12, SEEK_CUR);*/
     project->projectName = getWordFromFile(toRead);
+    project->projectName = getWordFromFile(toRead);
+    printf("\n%s\n", project->projectName);
 
-    fscanf(toRead, "%d", &project->peopleOnProject);
-    fscanf(toRead, "%lf", &project->resourcesOnProject);
-    fscanf(toRead, "%*c");
-
+    fscanf(toRead, " %d", &project->peopleOnProject);
+    fscanf(toRead, " %lf", &project->resourcesOnProject);
+    /*fscanf(toRead, "%*c");*/
+    fseek(toRead, 15, SEEK_CUR);
     project->criticalTasks = loadFromFileListOfTasks(toRead);
+    fseek(toRead, 15, SEEK_CUR);
     project->parallelTasks = loadFromFileListOfTasks(toRead);
 
     project->criticalTasks = project->parallelTasks = NULL;

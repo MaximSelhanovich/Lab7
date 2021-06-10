@@ -2,7 +2,6 @@
 
 int main() {
     FILE *file = NULL;
-    long int position = 0;
     ListOfProjects *listOfProjects = NULL;
 
     file = fopen("Projects.txt", "r");
@@ -11,13 +10,13 @@ int main() {
         exit(-1);
     }
 
-    fseek(file, 0, SEEK_END);
-    position = ftell(file);
-
-    fseek(file, 0, SEEK_SET);
-    if (position < 50) listOfProjects = newListOfProjects();
-    else
+    if (getc(file) != EOF) {
+        printf("we should be here");
+        fseek(file, 0, SEEK_SET);
         listOfProjects = loadFromFileListOfProjects(file);
+    }
+    else
+        listOfProjects = newListOfProjects();
 
     menu(listOfProjects);
 
@@ -29,7 +28,7 @@ int main() {
 
     return 0;
 }
-    
+
 int completeProject(ListOfProjects *listOfProjects) {
     char *nameToDelete = NULL;
     Project *temp = NULL;
@@ -66,9 +65,8 @@ int menu(ListOfProjects *listOfProjects) {
                "4)Exit\n");
 
         choise = getValidInt(1, 4);
-        
-        switch (choise)
-        {
+
+        switch (choise) {
         case 1:
             temp = newProject();
             addProjectEnd(listOfProjects, temp);
@@ -77,7 +75,7 @@ int menu(ListOfProjects *listOfProjects) {
             printProjectShort(listOfProjects);
             break;
         case 3:
-            completeProject(listOfProjects); 
+            completeProject(listOfProjects);
             break;
         default:
             break;

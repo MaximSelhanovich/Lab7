@@ -24,6 +24,7 @@ void printProjectShort(ListOfProjects *list) {
     while (temp) {
         printf("%s", temp->projectName);
         printDeadlines(temp);
+        temp = temp->nextProject;
     }
 }
 
@@ -65,7 +66,7 @@ Project *deleteProjectInList(ListOfProjects *list, const char *nameToSearch) {
     while (temp) {
         if (!strcmp(temp->projectName, nameToSearch)) {
             printProject(temp);
-            
+
             if (temp == list->head) {
                 list->head = list->head->nextProject;
                 if (list->head) list->head->prevProject = temp->prevProject;
@@ -74,9 +75,9 @@ Project *deleteProjectInList(ListOfProjects *list, const char *nameToSearch) {
                 if (list->tail) list->tail->nextProject = temp->nextProject;
             } else {
                 temp->prevProject->nextProject = temp->nextProject;
-                temp->nextProject->prevProject = temp->prevProject; 
+                temp->nextProject->prevProject = temp->prevProject;
             }
-            
+
             temp->nextProject = temp->prevProject = NULL;
             return temp;
         }
@@ -87,7 +88,7 @@ Project *deleteProjectInList(ListOfProjects *list, const char *nameToSearch) {
 
 void deleteListOfProjects(ListOfProjects *list) {
     Project *temp = NULL;
-    
+
     if (!list) return;
 
     temp = list->head;
@@ -123,8 +124,12 @@ ListOfProjects* loadFromFileListOfProjects(FILE *toRead) {
 
     if (!toRead) return NULL;
 
+    fseek(toRead, 0, SEEK_SET);
+
     list = newListOfProjects();
-    fscanf(toRead, "%u", &length);
+    fscanf(toRead, " %u", &length);
+    printf("\n\n%u\n\n", length);
+    /*fscanf(toRead, "%*c");*/
 
     for (i = 0; i < length; ++i) {
         project = loadFromFileProject(toRead);

@@ -30,7 +30,7 @@ char* getWordFromFile(FILE *toRead) {
     if (!tempLine) return NULL;
 
     fscanf(toRead, "%[^\n]255s", tempLine);
-    fscanf(toRead, "%*c");
+    /*fscanf(toRead, "%*c");*/
     tempLine = resizeLine(tempLine);
     return tempLine;
 }
