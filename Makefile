@@ -19,7 +19,7 @@ CheckValgrind:
 CheckLinter:
 	cpplint $(CPPLINTFLAGS) $(OBJ_TEST)
 
-all: Lab7 Lab7_Test CheckValgrind CheckLinter
+all: Lab7 Lab7_Test CheckLinter
 
 .PHONY: clean
 clean:
