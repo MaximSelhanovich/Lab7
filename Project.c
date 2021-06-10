@@ -45,8 +45,8 @@ void addTaskInProject(Project *project) {
 }
 
 int printDeadlines(Project *project) {
-    if (!project || !project->criticalTasks || !project->parallelTasks ||
-        !project->criticalTasks->head || !project->parallelTasks->head) {
+    if (!project || !project->criticalTasks ||
+        !project->criticalTasks->head || !project->criticalTasks->tail) {
             printf("\nThere are no tasks\n");
             return 0;
         }
