@@ -82,7 +82,7 @@ int deleteProject(Project *project) {
 
     if (project->criticalTasks) deleteListOfTasks(project->criticalTasks);
     if (project->parallelTasks) deleteListOfTasks(project->parallelTasks);
-    free(project->projectName);
+    if (project->projectName) free(project->projectName);
     free(project);
 
     return 1;
