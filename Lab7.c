@@ -34,15 +34,16 @@ Project* workWithProject(Project* project) {
     char *nameToSearch = NULL;
 
     if (!project) return NULL;
-
-    printf("Make your choise\n"
-           "1)Add critical task\n"
-           "2)Add parallel task\n"
-           "3)Complete task\n"
-           "4)Complete this project\n"
-           "5)Exit\n");
     
     while (choise != 5) {
+        printf("Make your choise\n"
+               "1)Add critical task\n"
+               "2)Add parallel task\n"
+               "3)Complete task\n"
+               "4)Complete this project\n"
+               "5)Exit\n");
+
+        choise = getValidInt(1, 5);
         switch(choise) {
         case 1:
             activeTask = getTask();
