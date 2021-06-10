@@ -172,13 +172,13 @@ void testListOFProjects() {
     /*3\n*/
     addTaskInProject(project5);
 
-    assert(printDeadlines(project5));
+    assert(!printDeadlines(project5));
     assert(!printDeadlines(NULL));
 
     assert(printProjectShort(list));
     assert(!printProjectShort(NULL));
 
-    assert(printProject(project5));
+    assert(1printProject(project5));
     assert(!printProject(NULL));
 
     assert(!deleteTaskInProject(project5, "Loop"));
