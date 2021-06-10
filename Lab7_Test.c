@@ -188,16 +188,16 @@ void testListOFProjects() {
     /*assert(deleteProject(project5));*/
     assert(!deleteProject(NULL));
 
-    /*project1 = deleteProjectInList(list, "jdfgvrtjyg");
-    assert(!project1);*/
-    /*deleteProject(project1);*/
-    /*project2 = deleteProjectInList(list, "Projext test");
-    assert(project2);*/
-    /*deleteProject(project2);*/
+    project1 = deleteProjectInList(list, "jdfgvrtjyg");
+    assert(!project1);
+    deleteProject(project1);
+    project2 = deleteProjectInList(list, "Projext test");
+    assert(project2);
+    deleteProject(project2);
 
-    /*project3 = deleteProjectInList(list, "Kek");
-    assert(project3);*/
-    /*deleteProject(project3);*/
+    project3 = deleteProjectInList(list, "Kek");
+    assert(project3);
+    deleteProject(project3);
 
     project4 = deleteProjectInList(list, "noooooo");
     assert(project4);
